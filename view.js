@@ -54,20 +54,19 @@ function listForm(model){
 }
 
 //to ask about the tip percentage
-function inputForm_2(model){
-    const {tax} = model
-    const message = 'enter %tips'
+function inputNewCity(model){
+    const {cities} = model
+    const message = 'enter a new city'
     return inquirer.prompt([
         {
-            name: 'tax',
-            type: 'tax',
+            name: 'city',
+            type: 'city',
             message: message,
-            default: tax,
             validate: function(value){
-                if(value >=0){
-                    return true
+                if(cities.indexOf(value) !=-1){
+                    return value // no recuerdo si era value o true 
                 } else {
-                    return 'Enter another %tips'
+                    return 'Enter anotther city. This city is in the list'
                 }
             }
         }
