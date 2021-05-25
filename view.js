@@ -76,6 +76,6 @@ function inputNewCity(model){
 
 module.exports = {
     allView, 
-    inputForm_1,
-    inputForm_2
+    inputNewCity,
+    listForm
 }
