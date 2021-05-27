@@ -40,7 +40,7 @@ function allView(model){
 function listForm(model){
     let table = Array
     const {cities} = model
-    while(count<cities.length){
+    while(count<cities.length){ // en el paradigma no se puede while
         table[count]=cities[count]
         count+=1;
     }
