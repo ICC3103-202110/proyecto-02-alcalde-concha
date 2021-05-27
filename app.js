@@ -18,19 +18,19 @@ async function app(state, update, view) {
         
         //Agreegar condicion inicio (cuando no hay ninguna ciudad)
         if (action === "Add City") {
-            const { location } = await () // poner pregunta
+            const { city } = await () // poner pregunta
 
         }
 
         else if (action === "Update City") {
-            const { location} = await () // poner pregunta
+            const { city } = await () // poner pregunta
         }
 
         else if (action === "Delete city") {
-            const { location } = await () // poner pregunta
+            const { city } = await () // poner pregunta
         }
 
-        
+
 
 
 

@@ -23,7 +23,7 @@ function getTable(model){
     let count = 0
     let table = Array
     while(count<cities.length){
-        table[count]={city: cities[count] , temperature: temperatures[count]}
+        table[count]={city: cities[count] , temperature: temperatures[count]} // en el paradigma no se puede while
         count+=1;
     }
     return table
@@ -44,6 +44,9 @@ function listForm(model){
         table[count]=cities[count]
         count+=1;
     }
+    //No es necesario el while, basta con esto creo
+    // const choices = cities
+    
     const choices = table
     return inquirer.prompt({
         name: city,
@@ -63,8 +66,8 @@ function inputNewCity(model){
             type: 'city',
             message: message,
             validate: function(value){
-                if(cities.indexOf(value) !=-1){
-                    return value // no recuerdo si era value o true 
+                if(cities.indexOf(value) !=-1){ 
+                    return value // no recuerdo si era value o true // Hola: Es value
                 } else {
                     return 'Enter anotther city. This city is in the list'
                 }
