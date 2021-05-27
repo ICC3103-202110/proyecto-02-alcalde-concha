@@ -38,21 +38,14 @@ function allView(model){
 //hasta aca todo bien
 //to ask about the amount
 function listForm(model){
-    let table = Array
-    const {cities} = model
-    while(count<cities.length){ // en el paradigma no se puede while
-        table[count]=cities[count]
-        count+=1;
-    }
-    //No es necesario el while, basta con esto creo
-    // const choices = cities
     
-    const choices = table
+    const { cities } = model
+    
     return inquirer.prompt({
         name: city,
         type: 'list',
         message: "which city do you want to delete?",
-        choices: choices
+        choices: cities
     })
 }
 
@@ -67,7 +60,7 @@ function inputNewCity(model){
             message: message,
             validate: function(value){
                 if(cities.indexOf(value) !=-1){ 
-                    return value // no recuerdo si era value o true // Hola: Es value
+                    return true
                 } else {
                     return 'Enter anotther city. This city is in the list'
                 }
