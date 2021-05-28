@@ -69,7 +69,19 @@ function listCities(model){ //para eliminar una ciudad
     })
 }
 
-function listForm(model){
+function UpdateCities(model){ //para eliminar una ciudad
+    const {cities} = model
+    const message =  "which city do you want update?"
+    const choices = cities
+    return inquirer.prompt({
+        name: 'city',
+        type: 'list',
+        message: message,
+        choices: choices
+    })
+}
+
+function listForm(model){ //menu principal
     const message = 'Select action:'
     const choices = ['Add City','Update City','Delete city']
     return inquirer.prompt({
@@ -105,5 +117,6 @@ module.exports = {
     allView, 
     inputNewCity,
     listForm,
-    listCities
+    listCities,
+    UpdateCities
 }
