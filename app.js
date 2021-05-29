@@ -1,6 +1,13 @@
 const { printTable } = require('console-table-printer')
-const { listForm, AllQuestion } = require('./view') // exportar preguntas
-const { AllFuction }= require('/update')
+const { listForm, 
+     AllQuestion, 
+     AddCity,
+     DeleteCity,
+     UpdateCity } = require('./view') // exportar preguntas
+const { AllFuction,
+        Delete,
+        Update,
+        Add }= require('/update')
 
 
 async function app(state, update, view) {

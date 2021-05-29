@@ -57,7 +57,7 @@ function listForm(model){
     })
 }
 */
-function Deletecity(model){ //para eliminar una ciudad
+function DeleteCity(model){ //para eliminar una ciudad
     const {cities} = model
     const message =  "which city do you want to delete?"
     const choices = cities
@@ -121,6 +121,8 @@ module.exports = {
     allView, 
     AllQuestion,
     listForm,
+    AddCity,
+    DeleteCity,
+    UpdateCity
    
-    
 }

@@ -51,5 +51,8 @@ const AllFuction ={
 }
 
 module.exports = {
-    AllFuction
+    AllFuction,
+    Delete,
+    Update,
+    Add
 }
