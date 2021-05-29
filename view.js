@@ -57,7 +57,7 @@ function listForm(model){
     })
 }
 */
-function listCities(model){ //para eliminar una ciudad
+function Deletecity(model){ //para eliminar una ciudad
     const {cities} = model
     const message =  "which city do you want to delete?"
     const choices = cities
@@ -69,7 +69,7 @@ function listCities(model){ //para eliminar una ciudad
     })
 }
 
-function UpdateCities(model){ //para eliminar una ciudad
+function UpdateCity(model){ //para actualizar una ciudad
     const {cities} = model
     const message =  "which city do you want update?"
     const choices = cities
@@ -80,26 +80,14 @@ function UpdateCities(model){ //para eliminar una ciudad
         choices: choices
     })
 }
-
-function listForm(model){ //menu principal
-    const message = 'Select action:'
-    const choices = ['Add City','Update City','Delete city']
-    return inquirer.prompt({
-        name: 'action',
-        type: 'list',
-        message: message,
-        choices: choices
-    })
-}
-
 //to ask about the tip percentage
-function inputNewCity(model){
+function AddCity(model){
     const {cities} = model
     const message = 'enter a new city'
     return inquirer.prompt([
         {
             name: 'city',
-            type: 'city',
+            type: 'list',
             message: message,
             validate: function(value){
                 if(cities.indexOf(value) !=-1){ 
@@ -111,12 +99,28 @@ function inputNewCity(model){
         }
     ])
 }
+function listForm(){ //menu principal
+    const message = 'Select action:'
+    const choices = ['Add City','Update City','Delete city']
+    return inquirer.prompt({
+        name: 'action',
+        type: 'list',
+        message: message,
+        choices: choices
+    })
+}
 
+
+const AllQuestion = {
+    'Add City'   : AddCity,
+    'Update City': UpdateCity,
+    'Delete City': DeleteCity
+}
 
 module.exports = {
     allView, 
-    inputNewCity,
+    AllQuestion,
     listForm,
-    listCities,
-    UpdateCities
+   
+    
 }
