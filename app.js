@@ -1,6 +1,6 @@
 const { printTable } = require('console-table-printer')
 const { listForm, AllQuestion } = require('./view') // exportar preguntas
-
+const { AllFuction }= require('/update')
 
 
 async function app(state, update, view) {
@@ -16,8 +16,7 @@ async function app(state, update, view) {
 
         const { action } = await listForm() // poner pregunta
         const { city } = await AllQuestion[action](model)
-        //aca se debe hacer lo mismo con update seria 
-        //model= Allchange[action](city) 
+        model= Allfuction[action](model,city) 
         
        
 
