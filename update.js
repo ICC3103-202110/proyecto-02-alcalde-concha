@@ -1,9 +1,9 @@
-function Add(model,city){
+function Add(model,city,data){
     const {cities, temperatures,tMax,tMin} = model
     cities.push(city)
-    temperatures.push()//aca debe ir la temperatura actual
-    tMax.push()//temperatura maxima
-    tMin.push()//temperatura minima
+    temperatures.push(data.main.temp)//aca debe ir la temperatura actual
+    tMax.push(data.main.temp_max)//temperatura maxima
+    tMin.push(data.main.temp_min)//temperatura minima
     return{
         ...model,
         cities: cities,
@@ -35,7 +35,7 @@ function Update(model,city,data){
     cities.splice(index,1, city)
     temperatures.splice(index,1, data.main.temp)
     tMax.splice(index,1,data.main.temp_max)
-    tMin.splice(index,1,data.main.temp_min)
+    tMin.splice(index, 1, data.main.temp_min)
     //temperatures[index]=//ingrese nueva temperatura
     //tMax[index]=//ingrese nueva temperatura maxima 
     //tMin[index]= //ingrese nueva temperatura minima
@@ -47,7 +47,7 @@ function Update(model,city,data){
         tMin: tMin
     }
 }
-const AllFuction ={
+const AllFunction ={
     'Add City'   : Add,
     'Update City': Update,
     'Delete City': Delete
@@ -55,5 +55,5 @@ const AllFuction ={
 }
 
 module.exports = {
-    AllFuction
+    AllFunction
 }

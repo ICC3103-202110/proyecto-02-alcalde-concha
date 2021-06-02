@@ -1,6 +1,6 @@
 const { printTable } = require('console-table-printer')
 const { listForm, AllQuestion, AddCity,DeleteCity,UpdateCity } = require('./view') // exportar preguntas
-const { AllFuction } = require('./update')
+const {  AllFunction } = require('./update')
 const fetch = require("node-fetch");
 
 const key = 'cb768f5f884d90e3545b9e5fb7980431'
@@ -12,22 +12,24 @@ async function app(state, update, view) {
         const { model, currentView } = state
         const { title, table } = currentView
 
-        console.clear()
+        //console.clear()
         console.log(title)
         printTable(table)
 
-        //const { action } = await listForm() // poner pregunta
+        const { action } = await listForm() 
         const { city } = await AllQuestion[action](model)
 
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
         const data = await response.json()
-        model= Allfuction[action](model,city, data) 
+        const updatedModel = await AllFunction[action](model, city, data)
         
         state = {
             ...state,
-            model: model,
-            currentView: allView(model)
+            model: updatedModel,
+            currentView: view(updatedModel)
         }
+        
+       
     }
 }
 

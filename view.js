@@ -22,11 +22,16 @@ function getTable(model){
     const {cities,temperatures} = model
     let count = 0
     let table = Array
-    while(count<cities.length){
-        table[count]={'city': cities[count] , 'temperature': temperatures[count]} // en el paradigma no se puede while
-        count+=1;
-    }
-    return table
+    //while(count<cities.length){
+        //table[count]=[{'city': cities[count] , 'temperature': temperatures[count]]} // en el //paradigma no se puede while
+        //count+=1;
+    //}
+    return [{
+            "City": `${model.cities[0]}`,
+            "Temp": `${model.temperatures[0]}`,
+            "Max": ` ${model.tMax[0]}`,
+            "Min": `${model.tMin[0]}`
+        }];
 }
 
 //join table and title, to export only one thing
@@ -59,7 +64,7 @@ function listForm(model){
 */
 function DeleteCity(model){ //para eliminar una ciudad
     const {cities} = model
-    const message =  "which city do you want to delete?"
+    const message =  "Which city do you want to delete?"
     const choices = cities
     return inquirer.prompt({
         name: 'city',
@@ -71,7 +76,7 @@ function DeleteCity(model){ //para eliminar una ciudad
 
 function UpdateCity(model){ //para actualizar una ciudad
     const {cities} = model
-    const message =  "which city do you want update?"
+    const message =  "Which city do you want update?"
     const choices = cities
     return inquirer.prompt({
         name: 'city',
@@ -83,22 +88,23 @@ function UpdateCity(model){ //para actualizar una ciudad
 //to ask about the tip percentage
 function AddCity(model){
     const {cities} = model
-    const message = 'enter a new city'
+    const message = 'Enter a new city: '
     return inquirer.prompt([
         {
             name: 'city',
-            type: 'list',
+            type: 'input',
             message: message,
-            validate: function(value){
-                if(cities.indexOf(value) !=-1){ 
-                    return true // no recuerdo si era value o true // Hola: Es value
-                } else {
-                    return 'Enter anotther city. This city is in the list'
-                }
-            }
+            
         }
     ])
 }
+//validate: function(value) { // no funciono, hay que arreglar
+    //if(cities.indexOf(value) !=-1){ 
+        //  return true 
+    //} else {
+          //  return 'Enter anotther city. This city is in the list'
+          // }
+//}
 function listForm(){ //menu principal
     const message = 'Select action:'
     const choices = ['Add City','Update City','Delete city']
@@ -120,9 +126,5 @@ const AllQuestion = {
 module.exports = {
     allView, 
     AllQuestion,
-    listForm,
-    AddCity,
-    DeleteCity,
-    UpdateCity
-   
+    listForm
 }
