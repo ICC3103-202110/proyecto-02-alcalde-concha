@@ -17,6 +17,6 @@ async function getData(city) {
   
 
 
-getData('Santiago').then(value => console.log("Temp: ",value.temp))
+getData('Santiago').then(value => console.log("Temp: ", value.temp))
 getData('Santiago').then(value => console.log("Temp Max: ",value.tempMax))
 getData('Santiago').then(value => console.log("Temp Min: ",value.tempMin))
