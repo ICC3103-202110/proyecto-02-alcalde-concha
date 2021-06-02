@@ -23,7 +23,7 @@ function getTable(model){
     let count = 0
     let table = Array
     while(count<cities.length){
-        table[count]={city: cities[count] , temperature: temperatures[count]} // en el paradigma no se puede while
+        table[count]={'city': cities[count] , 'temperature': temperatures[count]} // en el paradigma no se puede while
         count+=1;
     }
     return table
