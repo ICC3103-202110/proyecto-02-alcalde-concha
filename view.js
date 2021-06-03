@@ -27,9 +27,9 @@ function getTable(model){
     return output
 }
 function addTable(output, model, value) {
-    //const { cities, temperatures, tMax, tMin } = initModel
+    const { cities, temperatures, tMax, tMin } = initModel
    // console.log(cities.length)
-  //  console.log(cities)
+    console.log(tMax)
    // console.log(value)
     if (value == 0) {
         output.push({

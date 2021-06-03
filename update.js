@@ -32,10 +32,10 @@ function Delete(model,city){
 function Update(model,city,data){
     const {cities, temperatures,tMax,tMin} = model
     let index = cities.indexOf(city)
-    cities.splice(index,1, city)
-    temperatures.splice(index,1)
-    tMax.splice(index,1)
-    tMin.splice(index, 1)
+    //cities.splice(index,1, city)
+    //temperatures.splice(index,1)
+   // tMax.splice(index,1)
+    //tMin.splice(index, 1)
     temperatures[index]= data.main.temp//ingrese nueva temperatura
     tMax[index]= data.main.temp_max//ingrese nueva temperatura maxima 
     tMin[index]=  data.main.temp_min//ingrese nueva temperatura minima
