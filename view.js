@@ -3,6 +3,7 @@ const chalk = require('chalk')
 const inquirer = require('inquirer')
 const {initModel} = require('./model')
 const { range } = require('rxjs')
+const { Table } = require('console-table-printer')
  
 //show title
 function getTitle(){ 
@@ -17,6 +18,29 @@ function getTitle(){
     )
 }
 
+
+function getTable(model){
+    let output = []
+    console.log(output)
+    addTable(output,model,0)
+    console.log(output)
+    return output
+}
+function addTable(output,model,value){
+    const {cities,temperatures,tMax,tMin} = model
+    if (value == 0){
+        output.push({
+            city : cities[value], temp : temperatures[value], Max: tMax[value], Min: tMin[value]   
+        })
+    }
+    else{
+    if (value >= cities.length()){return output}
+    output.push({
+        city : cities[value], temp : temperatures[value], Max: tMax[value], Min: tMin[value]   
+    })}
+    addTable(model,value+1)
+}
+/*
 //to show the rectangle(table)
 function getTable(model){ // hay q arraglar esto para que se vea todo el tablero
     const {cities,temperatures} = model
@@ -33,7 +57,7 @@ function getTable(model){ // hay q arraglar esto para que se vea todo el tablero
             "Min": `${model.tMin}`
         }];
 }
-
+*/
 //join table and title, to export only one thing
 function allView(model){
     return{
