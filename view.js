@@ -28,13 +28,13 @@ function getTable(model){
 }
 function addTable(output,model,value){
     const {cities,temperatures,tMax,tMin} = model
-    if (value == 0){
+    if (value ==0){
         output.push({
             city : cities[value], temp : temperatures[value], Max: tMax[value], Min: tMin[value]   
         })
     }
     else{
-    if (value >= cities.length()){return output}
+    if (value >= cities.length){return output}
     output.push({
         city : cities[value], temp : temperatures[value], Max: tMax[value], Min: tMin[value]   
     })}
