@@ -21,24 +21,37 @@ function getTitle(){
 
 function getTable(model){
     let output = []
-    console.log(output)
+    console.log(" Hola en gerttabler")
     addTable(output,model,0)
     console.log(output)
     return output
 }
-function addTable(output,model,value){
-    const {cities,temperatures,tMax,tMin} = model
-    if (value ==0){
+function addTable(output, model, value) {
+    //const { cities, temperatures, tMax, tMin } = initModel
+   // console.log(cities.length)
+  //  console.log(cities)
+   // console.log(value)
+    if (value == 0) {
         output.push({
-            city : cities[value], temp : temperatures[value], Max: tMax[value], Min: tMin[value]   
+            'city': `${cities[value]}`,
+             'temp': `${temperatures[value]}`,
+              'Max': `${tMax[value]}`,
+               'Min': `${tMin[value]}`
         })
     }
-    else{
-    if (value >= cities.length){return output}
-    output.push({
-        city : cities[value], temp : temperatures[value], Max: tMax[value], Min: tMin[value]   
-    })}
-    addTable(model,value+1)
+    else {
+       // console.log("hola en el esel")
+        if (value >= cities.length) { return output }
+        output.push({
+            'city': `${cities[value]}`,
+             'temp': `${temperatures[value]}`,
+              'Max': `${tMax[value]}`,
+               'Min': `${tMin[value]}`
+        })
+        
+    }
+    value+=1
+    addTable(output,model,value)
 }
 /*
 //to show the rectangle(table)
