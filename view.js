@@ -94,17 +94,17 @@ function AddCity(model){
             name: 'city',
             type: 'input',
             message: message,
-            
+            validate: function(value) { 
+                if(cities.indexOf(value) ==-1){ 
+                    return true 
+                } else {
+                    return 'Enter anotther city. This city is in the list'
+                }
+            }    
         }
     )
 }
-//validate: function(value) { // no funciono, hay que arreglar
-    //if(cities.indexOf(value) !=-1){ 
-        //  return true 
-    //} else {
-          //  return 'Enter anotther city. This city is in the list'
-          // }
-//}
+
 function listForm(){ //menu principal
     const message = 'Select action:'
     const choices = ['Add City','Update City','Delete City']
