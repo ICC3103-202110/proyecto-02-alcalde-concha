@@ -89,14 +89,14 @@ function UpdateCity(model){ //para actualizar una ciudad
 function AddCity(model){
     const {cities} = model
     const message = 'Enter a new city: '
-    return inquirer.prompt([
+    return inquirer.prompt(
         {
             name: 'city',
             type: 'input',
             message: message,
             
         }
-    ])
+    )
 }
 //validate: function(value) { // no funciono, hay que arreglar
     //if(cities.indexOf(value) !=-1){ 
@@ -107,7 +107,7 @@ function AddCity(model){
 //}
 function listForm(){ //menu principal
     const message = 'Select action:'
-    const choices = ['Add City','Update City','Delete city']
+    const choices = ['Add City','Update City','Delete City']
     return inquirer.prompt({
         name: 'action',
         type: 'list',

@@ -1,5 +1,5 @@
 const { printTable } = require('console-table-printer')
-const { listForm, AllQuestion, AddCity,DeleteCity,UpdateCity } = require('./view') // exportar preguntas
+const { listForm, AllQuestion} = require('./view') // exportar preguntas
 const {  AllFunction } = require('./update')
 const fetch = require("node-fetch");
 
@@ -15,7 +15,7 @@ async function app(state, update, view) {
         //console.clear()
         console.log(title)
         printTable(table)
-
+        
         const { action } = await listForm() 
         const { city } = await AllQuestion[action](model)
 
