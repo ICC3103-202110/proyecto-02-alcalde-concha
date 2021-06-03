@@ -18,7 +18,7 @@ function getTitle(){
 }
 
 //to show the rectangle(table)
-function getTable(model){
+function getTable(model){ // hay q arraglar esto para que se vea todo el tablero
     const {cities,temperatures} = model
     let count = 0
     let table = Array
@@ -27,10 +27,10 @@ function getTable(model){
         //count+=1;
     //}
     return [{
-            "City": `${model.cities[0]}`,
-            "Temp": `${model.temperatures[0]}`,
-            "Max": ` ${model.tMax[0]}`,
-            "Min": `${model.tMin[0]}`
+            "City": `${model.cities}`,
+            "Temp": `${model.temperatures}`,
+            "Max": ` ${model.tMax}`,
+            "Min": `${model.tMin}`
         }];
 }
 
