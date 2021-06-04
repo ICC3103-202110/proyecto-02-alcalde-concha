@@ -108,7 +108,6 @@ function listForm(model){ //main menu
     })
 }
 
-
 const AllQuestion = {
     'Add City'   : AddCity,
     'Update City': UpdateCity,

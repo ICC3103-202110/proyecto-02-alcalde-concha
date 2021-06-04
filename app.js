@@ -29,8 +29,6 @@ async function app(state, view) {
             model: updatedModel,
             currentView: view(updatedModel)
         }
-        
-       
     }
 }
 
