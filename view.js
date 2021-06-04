@@ -35,7 +35,6 @@ function addTable(output, model, value) {
         })
     }
     else {
-       // console.log("hola en el esel")
         if (value >= cities.length) { return output }
         output.push({
             'city': `${cities[value]}`,

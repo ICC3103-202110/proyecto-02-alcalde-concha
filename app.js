@@ -8,7 +8,7 @@ const key = 'cb768f5f884d90e3545b9e5fb7980431'
 async function app(state, update, view) {
     
     while (true) {
-
+        
         const { model, currentView } = state
         const { title, table } = currentView
 
