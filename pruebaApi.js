@@ -8,15 +8,13 @@ async function getData(city) {
     const key = 'cb768f5f884d90e3545b9e5fb7980431'
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
     const data = await response.json()
-    return {
-        temp: data.main.temp,
-        tempMax: data.main.temp_max,
-        tempMin: data.main.temp_min,
-    }
+    console.log(data.message)
+
 }
   
 
-
-getData('Santiago').then(value => console.log("Temp: ", value.temp))
-getData('Santiago').then(value => console.log("Temp Max: ",value.tempMax))
-getData('Santiago').then(value => console.log("Temp Min: ",value.tempMin))
+getData('S') //city not found
+getData('Santiago') // undefined
+//getData('Santiago').then(value => console.log("Temp: ", value))
+//getData('Santiago').then(value => console.log("Temp Max: ",value.tempMax))
+//getData('Santiago').then(value => console.log("Temp Min: ",value.tempMin))

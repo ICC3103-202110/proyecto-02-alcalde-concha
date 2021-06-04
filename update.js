@@ -1,9 +1,12 @@
 function Add(model,city,data){
-    const {cities, temperatures,tMax,tMin} = model
-    cities.push(city)
-    temperatures.push(data.main.temp)
-    tMax.push(data.main.temp_max)
-    tMin.push(data.main.temp_min)
+    const { cities, temperatures, tMax, tMin } = model
+    
+    if (data.message != 'city not found') {
+        cities.push(city)
+        temperatures.push(data.main.temp)
+        tMax.push(data.main.temp_max)
+        tMin.push(data.main.temp_min)
+    }
     return{
         ...model,
         cities: cities,
