@@ -1,4 +1,4 @@
-const kelvinToCelsius = (temperature) => (Number(temperature) - 273.15).toFixed(2);
+const kelvinToCelsius = (temperature) => (Number(temperature) - 273.15).toFixed(2)
 
 function Add(model, city, data) {
     const { cities, temperatures, tMax, tMin } = model
