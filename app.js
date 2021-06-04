@@ -5,7 +5,7 @@ const fetch = require("node-fetch");
 
 const key = 'cb768f5f884d90e3545b9e5fb7980431'
 
-async function app(state, update, view) {
+async function app(state, view) {
     
     while (true) {
         

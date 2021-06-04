@@ -1,9 +1,6 @@
 const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
-const {initModel} = require('./model')
-const { range } = require('rxjs')
-const { Table } = require('console-table-printer')
  
 //show title
 function getTitle(){ 
@@ -24,7 +21,7 @@ function getTable(model){
     return output
 }
 function addTable(output, model, value) {
-    const { cities, temperatures, tMax, tMin } = initModel
+    const { cities, temperatures, tMax, tMin } = model
 
     if (value == 0) {
         output.push({
