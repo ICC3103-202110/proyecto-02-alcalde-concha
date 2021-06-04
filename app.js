@@ -14,9 +14,10 @@ async function app(state, update, view) {
 
         console.clear()
         console.log(title)
-        printTable(table)
+
+        if(model.cities.length != 0) printTable(table)
         
-        const { action } = await listForm() 
+        const { action } = await listForm(model) 
         const { city } = await AllQuestion[action](model)
 
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)

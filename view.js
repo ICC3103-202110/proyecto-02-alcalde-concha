@@ -97,9 +97,12 @@ function AddCity(model){ // add city
     )
 }
 
-function listForm(){ //mani menu 
+function listForm(model){ //mani menu 
     const message = 'Select action:'
-    const choices = ['Add City','Update City','Delete City']
+    if (model.cities.length == 0)
+        choices = ['Add City']
+    else
+        choices = ['Add City', 'Update City', 'Delete City']
     return inquirer.prompt({
         name: 'action',
         type: 'list',
