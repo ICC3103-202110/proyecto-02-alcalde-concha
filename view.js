@@ -1,9 +1,6 @@
 const figlet = require('figlet')
 const chalk = require('chalk')
 const inquirer = require('inquirer')
-const {initModel} = require('./model')
-const { range } = require('rxjs')
-const { Table } = require('console-table-printer')
  
 //show title
 function getTitle(){ 
@@ -18,15 +15,14 @@ function getTitle(){
     )
 }
 
-//to show the rectangle(table)
 function getTable(model){
     let output = []
     addTable(output,model,0)
-    console.log(output)
     return output
 }
 function addTable(output, model, value) {
-    const { cities, temperatures, tMax, tMin } = initModel
+    const { cities, temperatures, tMax, tMin } = model
+
     if (value == 0) {
         output.push({
             'city': `${cities[value]}`,
@@ -49,14 +45,13 @@ function addTable(output, model, value) {
     addTable(output,model,value)
 }
 
-//join table and title, to export only one thing
 function allView(model){
     return{
     title: getTitle(),
     table: getTable(model)
 }}
 
-function DeleteCity(model){ //to delete a city
+function DeleteCity(model){ //delete city
     const {cities} = model
     const message =  "Which city do you want to delete?"
     const choices = cities
@@ -68,7 +63,7 @@ function DeleteCity(model){ //to delete a city
     })
 }
 
-function UpdateCity(model){ //to update a city
+function UpdateCity(model){ //update city
     const {cities} = model
     const message =  "Which city do you want update?"
     const choices = cities
@@ -79,8 +74,8 @@ function UpdateCity(model){ //to update a city
         choices: choices
     })
 }
-//to ask about the tip percentage
-function AddCity(model){
+
+function AddCity(model){ // add city
     const {cities} = model
     const message = 'Enter a new city: '
     return inquirer.prompt(
@@ -99,9 +94,12 @@ function AddCity(model){
     )
 }
 
-function listForm(){ //main menu
+function listForm(model){ //main menu 
     const message = 'Select action:'
-    const choices = ['Add City','Update City','Delete City']
+    if (model.cities.length == 0)
+        choices = ['Add City']
+    else
+        choices = ['Add City', 'Update City', 'Delete City']
     return inquirer.prompt({
         name: 'action',
         type: 'list',
@@ -111,7 +109,7 @@ function listForm(){ //main menu
 }
 
 
-const AllQuestion = { //export all, to not use if
+const AllQuestion = {
     'Add City'   : AddCity,
     'Update City': UpdateCity,
     'Delete City': DeleteCity
