@@ -18,19 +18,14 @@ function getTitle(){
     )
 }
 
-
 function getTable(model){
     let output = []
-    console.log(" Hola en gerttabler")
     addTable(output,model,0)
-    console.log(output)
     return output
 }
 function addTable(output, model, value) {
     const { cities, temperatures, tMax, tMin } = initModel
-   // console.log(cities.length)
-    console.log(tMax)
-   // console.log(value)
+
     if (value == 0) {
         output.push({
             'city': `${cities[value]}`,
@@ -53,53 +48,14 @@ function addTable(output, model, value) {
     value+=1
     addTable(output,model,value)
 }
-/*
-//to show the rectangle(table)
-function getTable(model){ // hay q arraglar esto para que se vea todo el tablero
-    const {cities,temperatures} = model
-    let count = 0
-    let table = Array
-    //while(count<cities.length){
-        //table[count]=[{'city': cities[count] , 'temperature': temperatures[count]]} // en el //paradigma no se puede while
-        //count+=1;
-    //}
-    return [{
-            "City": `${model.cities}`,
-            "Temp": `${model.temperatures}`,
-            "Max": ` ${model.tMax}`,
-            "Min": `${model.tMin}`
-        }];
-}
-*/
-//join table and title, to export only one thing
+
 function allView(model){
     return{
     title: getTitle(),
     table: getTable(model)
 }}
-//hasta aca todo bien
-/*
-//to ask about the amount
-function listForm(model){
-    let table = Array
-    const {cities} = model
-    while(count<cities.length){ // en el paradigma no se puede while
-        table[count]=cities[count]
-        count+=1;
-    }
-    //No es necesario el while, basta con esto creo
-    // const choices = cities
-    
-    const choices = table
-    return inquirer.prompt({
-        name: city,
-        type: 'list',
-        message: "which city do you want to delete?",
-        choices: choices
-    })
-}
-*/
-function DeleteCity(model){ //para eliminar una ciudad
+
+function DeleteCity(model){ //delete city
     const {cities} = model
     const message =  "Which city do you want to delete?"
     const choices = cities
@@ -111,7 +67,7 @@ function DeleteCity(model){ //para eliminar una ciudad
     })
 }
 
-function UpdateCity(model){ //para actualizar una ciudad
+function UpdateCity(model){ //update city
     const {cities} = model
     const message =  "Which city do you want update?"
     const choices = cities
@@ -122,8 +78,8 @@ function UpdateCity(model){ //para actualizar una ciudad
         choices: choices
     })
 }
-//to ask about the tip percentage
-function AddCity(model){
+
+function AddCity(model){ // add city
     const {cities} = model
     const message = 'Enter a new city: '
     return inquirer.prompt(
@@ -142,7 +98,7 @@ function AddCity(model){
     )
 }
 
-function listForm(){ //menu principal
+function listForm(){ //mani menu 
     const message = 'Select action:'
     const choices = ['Add City','Update City','Delete City']
     return inquirer.prompt({

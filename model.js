@@ -1,4 +1,4 @@
-initModel = { //Variables to be used throughout the exercise
+initModel = { 
     cities: [],
     temperatures: [],
     tMax: [],

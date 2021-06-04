@@ -1,5 +1,5 @@
 const { printTable } = require('console-table-printer')
-const { listForm, AllQuestion} = require('./view') // exportar preguntas
+const { listForm, AllQuestion} = require('./view') 
 const {  AllFunction } = require('./update')
 const fetch = require("node-fetch");
 
@@ -12,7 +12,7 @@ async function app(state, update, view) {
         const { model, currentView } = state
         const { title, table } = currentView
 
-        //console.clear()
+        console.clear()
         console.log(title)
         printTable(table)
         
@@ -35,25 +35,3 @@ async function app(state, update, view) {
 
 module.exports = {app}
 
-
-
-/*
-
- //Agreegar condicion inicio (cuando no hay ninguna ciudad)
-        if (action === "Add City") {
-            const { city } = await () // poner pregunta
-
-        }
-
-        else if (action === "Update City") {
-            const { city } = await () // poner pregunta
-        }
-
-        else if (action === "Delete city") {
-            const { city } = await () // poner pregunta
-        }
-
-
-
-
-*/
