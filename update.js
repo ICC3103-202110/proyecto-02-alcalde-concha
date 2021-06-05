@@ -1,13 +1,12 @@
-const kelvinToCelsius = (temperature) => (Number(temperature) - 273.15).toFixed(2)
 
 function Add(model, city, data) {
     const { cities, temperatures, tMax, tMin } = model
     
     if (data.message != 'city not found') {
         cities.push(city)
-        temperatures.push(kelvinToCelsius(data.main.temp))
-        tMax.push(kelvinToCelsius(data.main.temp_max))
-        tMin.push(kelvinToCelsius(data.main.temp_min))
+        temperatures.push(data.main.temp)
+        tMax.push(data.main.temp_max)
+        tMin.push(data.main.temp_min)
     }
     return{
         ...model,
@@ -37,9 +36,9 @@ function Delete(model,city){ //erase city and its temperatures
 function Update(model,city,data){
     const {cities, temperatures,tMax,tMin} = model
     let index = cities.indexOf(city)
-    temperatures[index]= kelvinToCelsius(data.main.temp)//enter new temperature
-    tMax[index]= kelvinToCelsius(data.main.temp_max)//enter new temperature max
-    tMin[index]=  kelvinToCelsius(data.main.temp_min)//enter new temperature min
+    temperatures[index]= data.main.temp//enter new temperature
+    tMax[index]= data.main.temp_max//enter new temperature max
+    tMin[index]=  data.main.temp_min//enter new temperature min
     return{
         ...model,
         cities: cities,

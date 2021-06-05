@@ -20,7 +20,7 @@ async function app(state, view) {
         const { action } = await listForm(model) //main menu
         const { city } = await AllQuestion[action](model)//options menu
 
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`)
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`)
         const data = await response.json()
         const updatedModel = await AllFunction[action](model, city, data) //all actions
         
